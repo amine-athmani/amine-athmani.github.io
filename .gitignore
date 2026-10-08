@@ -1,0 +1,6 @@
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/build.log
+resume/*.fls
+resume/*.fdb_latexmk

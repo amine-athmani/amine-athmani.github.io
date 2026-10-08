@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amine Athmani, PhD</title>
+<meta name="description" content="Amine Athmani, PhD: Operations Research scientist and technical lead. Scheduling, rostering, vehicle routing and supply chain optimization with MILP, CP, metaheuristics and ML, from problem to production.">
+<meta property="og:title" content="Amine Athmani, PhD | Optimization & Operations Research">
+<meta property="og:description" content="Scheduling, routing and supply chain optimization, from problem to production. CPLEX, Gurobi, OR-Tools, CP Optimizer, Hexaly, Timefold, Python.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://amine-athmani.github.io/assets/Amine.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #13233A;
+  --ink-soft: #4B5B70;
+  --paper: #FBFCFC;
+  --grid: #E3EAF0;
+  --rule: #C9D4DE;
+  --research: #4A6FA5;
+  --industry: #0F7C7A;
+  --consult: #C98A00;
+  --focus: #0F7C7A;
+  --track-off: #DCE3EA;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #E6EDF4; --ink-soft: #9FB0C2; --paper: #0E1826; --grid: #1A2738; --rule: #2C3D52;
+    --research: #7FA2D6; --industry: #3FB7B3; --consult: #E9B23A; --focus: #3FB7B3; --track-off: #263649;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #E6EDF4; --ink-soft: #9FB0C2; --paper: #0E1826; --grid: #1A2738; --rule: #2C3D52;
+  --research: #7FA2D6; --industry: #3FB7B3; --consult: #E9B23A; --focus: #3FB7B3; --track-off: #263649;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-variation-settings: "wdth" 100;
+  font-size: 17px;
+  line-height: 1.55;
+}
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } body { font-size: 16px; } }
+
+/* ---------- Header ---------- */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; gap: 16px; }
+.top .mark { font-weight: 700; font-variation-settings: "wdth" 112; text-decoration: none; }
+.top nav { display: flex; gap: 20px; font-size: 15px; }
+.top nav a { text-decoration: none; color: var(--ink-soft); }
+.top nav a:hover { color: var(--ink); }
+@media (max-width: 600px) { .top nav .opt { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { padding: 48px 0 28px; }
+.hero h1 {
+  margin: 0;
+  font-size: clamp(44px, 9vw, 104px);
+  line-height: .92;
+  font-weight: 800;
+  font-variation-settings: "wdth" 62;
+  letter-spacing: -.01em;
+}
+.hero h1 span { display: block; font-variation-settings: "wdth" 125; font-weight: 400; font-size: .42em; letter-spacing: 0; margin-top: .35em; }
+.intro-grid { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px 40px; }
+.portrait {
+  width: 190px; height: 190px; object-fit: cover; object-position: 50% 20%;
+  border-radius: 4px; border: 1px solid var(--rule); display: block;
+}
+@media (max-width: 720px) {
+  .intro-grid { grid-template-columns: 1fr; }
+  .portrait { order: -1; width: 112px; height: 112px; }
+}
+section.block h3.sub { margin: 36px 0 4px; font-size: 20px; font-weight: 700; font-variation-settings: "wdth" 90; }
+.hero p.lede { max-width: 60ch; margin: 28px 0 0; font-size: 19px; color: var(--ink-soft); }
+.hero p.lede strong { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-block; padding: 11px 18px; border: 1.5px solid var(--ink); border-radius: 3px;
+  text-decoration: none; font-weight: 600; font-size: 15px;
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+/* ---------- Gantt ---------- */
+.gantt {
+  margin: 48px 0 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 20px 14px;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box;
+}
+.gantt figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--ink-soft); margin-bottom: 14px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.chart { position: relative; }
+.rows { position: relative; }
+.row { display: grid; grid-template-columns: 210px 1fr; align-items: center; min-height: 38px; }
+.row .label { font-size: 14px; line-height: 1.25; padding-right: 14px; }
+.row .label b { display: block; font-weight: 600; }
+.row .label small { color: var(--ink-soft); font-size: 13px; }
+.lane {
+  position: relative; height: 38px;
+  background-image: repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px calc(100% / 12));
+  border-bottom: 1px solid var(--grid);
+}
+.bar {
+  position: absolute; top: 9px; height: 20px; border-radius: 3px;
+  left: calc((var(--s) - 2015) / 12 * 100%);
+  width: calc((var(--e) - var(--s)) / 12 * 100%);
+  background: var(--c);
+  transform-origin: left center;
+}
+.bar.live::after {
+  content: ""; position: absolute; right: -1px; top: 0; bottom: 0; width: 14px;
+  background: repeating-linear-gradient(135deg, transparent 0 3px, var(--paper) 3px 5px);
+  border-radius: 0 3px 3px 0; opacity: .55;
+}
+.axis { display: grid; grid-template-columns: 210px 1fr; font-size: 12px; color: var(--ink-soft); font-variant-numeric: tabular-nums; margin-top: 6px; }
+.axis .ticks { display: flex; justify-content: space-between; }
+.today {
+  position: absolute; top: 0; bottom: -22px; width: 0;
+  left: calc(210px + (100% - 210px) * (2026.77 - 2015) / 12);
+  border-left: 1.5px dashed var(--ink);
+}
+.today span { position: absolute; bottom: -2px; right: 6px; font-size: 11px; color: var(--ink); white-space: nowrap; background: var(--paper); padding: 0 2px; }
+
+@media (max-width: 720px) {
+  .row, .axis { grid-template-columns: 1fr; }
+  .row { padding-top: 6px; }
+  .row .label { padding: 0 0 4px; }
+  .axis > :first-child { display: none; }
+  .today { left: calc(100% * (2026.77 - 2015) / 12); }
+  .axis .ticks span:nth-child(even) { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .bar { transform: scaleX(0); }
+  .js .placed .bar { animation: place .55s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(var(--i) * 140ms + 150ms); }
+  @keyframes place { to { transform: scaleX(1); } }
+}
+
+/* ---------- Sections ---------- */
+section.block { padding: 72px 0 8px; }
+section.block > h2 {
+  margin: 0 0 8px; font-size: clamp(30px, 5vw, 46px); line-height: 1;
+  font-weight: 750; font-variation-settings: "wdth" 70;
+}
+section.block > p.intro { margin: 0 0 32px; color: var(--ink-soft); max-width: 62ch; }
+
+/* Case studies */
+.case {
+  display: grid; grid-template-columns: 260px 1fr; gap: 12px 40px;
+  padding: 28px 0; border-top: 1px solid var(--rule);
+}
+.case:last-child { border-bottom: 1px solid var(--rule); }
+.case h3 { margin: 0; font-size: 22px; line-height: 1.15; font-weight: 700; font-variation-settings: "wdth" 90; }
+.case .who { margin: 6px 0 14px; font-size: 14px; color: var(--ink-soft); }
+.case .body p { margin: 0 0 12px; max-width: 68ch; }
+.case .facts { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.case .facts li { font-size: 14px; color: var(--ink-soft); }
+.case .facts b { display: block; color: var(--ink); font-size: 22px; font-weight: 700; font-variation-settings: "wdth" 80; font-variant-numeric: tabular-nums; }
+.stack { margin-top: 14px; font-size: 14px; color: var(--ink-soft); }
+.stack b { color: var(--ink); font-weight: 600; }
+
+/* Problem -> production track: a real sequence, shows how far each project went */
+.track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.track li { font-size: 12px; color: var(--ink-soft); padding-top: 8px; border-top: 4px solid var(--track-off); }
+.track li.done { border-top-color: var(--c, var(--industry)); color: var(--ink); }
+@media (max-width: 760px) { .case { grid-template-columns: 1fr; } }
+
+/* Toolbox */
+.tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 40px; }
+.tools h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; padding-bottom: 6px; border-bottom: 2px solid var(--ink); }
+.tools p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+
+/* Publications */
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pubs li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--grid); }
+.pubs .venue { font-weight: 700; font-variation-settings: "wdth" 80; }
+.pubs em { font-style: normal; }
+.pubs small { display: block; color: var(--ink-soft); font-size: 14px; }
+@media (max-width: 520px) { .pubs li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Contact */
+.contact { padding: 80px 0 40px; }
+.contact h2 { margin: 0; font-size: clamp(34px, 7vw, 72px); line-height: .95; font-weight: 800; font-variation-settings: "wdth" 62; max-width: 14ch; }
+.contact p { color: var(--ink-soft); max-width: 56ch; margin: 18px 0 26px; }
+footer { padding: 28px 0 40px; font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.theme-toggle { background: none; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 3px; padding: 4px 10px; font: inherit; cursor: pointer; }
+
+@media print {
+  .top nav, .actions, .theme-toggle { display: none; }
+  .js .bar { transform: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#">Amine Athmani</a>
+    <nav aria-label="Sections">
+      <a class="opt" href="#work">Work</a>
+      <a class="opt" href="#toolbox">Toolbox</a>
+      <a class="opt" href="#research">Research</a>
+      <a class="opt" href="#talks">Talks</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="intro-grid">
+      <h1>Amine Athmani, PhD<span>Optimization &amp; Operations Research lead</span></h1>
+      <img class="portrait" src="assets/Amine.jpg" width="696" height="654" alt="Portrait of Amine Athmani">
+      </div>
+      <p class="lede">I turn messy scheduling, routing and logistics problems into solvers that run in production.
+        <strong>MILP, constraint programming, metaheuristics and machine learning</strong>, with CPLEX, Gurobi,
+        OR-Tools, CP Optimizer, Hexaly and Timefold, from the first client workshop to the deployed API.</p>
+      <div class="actions">
+        <a class="btn primary" href="Amine_Athmani_Resume.pdf" download>Download resume (PDF)</a>
+        <a class="btn" href="mailto:amineathmani@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/amine-athmani/" rel="noopener">LinkedIn</a>
+      </div>
+
+      <figure class="gantt" aria-labelledby="gantt-cap">
+        <figcaption>
+          <span id="gantt-cap">Career, scheduled. One row per role, 2015 to today (dashed line).</span>
+          <span class="legend" aria-hidden="true">
+            <span><i style="background:var(--research)"></i>Research &amp; education</span>
+            <span><i style="background:var(--industry)"></i>Industry R&amp;D</span>
+            <span><i style="background:var(--consult)"></i>Consulting</span>
+          </span>
+        </figcaption>
+        <div class="chart">
+          <div class="rows" id="rows">
+            <div class="row"><div class="label"><b>Optacare</b><small>Replanning solver lead</small></div>
+              <div class="lane"><div class="bar live" style="--s:2026.58;--e:2026.85;--c:var(--consult);--i:5" title="Aug 2026 to present"></div></div></div>
+            <div class="row"><div class="label"><b>Dots &amp; Lines</b><small>Senior consultant, tech lead</small></div>
+              <div class="lane"><div class="bar live" style="--s:2024.17;--e:2026.85;--c:var(--consult);--i:4" title="Mar 2024 to present"></div></div></div>
+            <div class="row"><div class="label"><b>Adesoft</b><small>R&amp;D engineer, optimization</small></div>
+              <div class="lane"><div class="bar" style="--s:2020.83;--e:2024;--c:var(--industry);--i:3" title="Nov 2020 to Dec 2023"></div></div></div>
+            <div class="row"><div class="label"><b>UTT, PhD</b><small>AI &amp; Operations Research</small></div>
+              <div class="lane"><div class="bar" style="--s:2020.83;--e:2024;--c:var(--research);--i:2" title="Nov 2020 to Dec 2023"></div></div></div>
+            <div class="row"><div class="label"><b>LIST3N lab</b><small>Research intern, ML for OR</small></div>
+              <div class="lane"><div class="bar" style="--s:2019.67;--e:2020.67;--c:var(--research);--i:1" title="Sep 2019 to Sep 2020"></div></div></div>
+            <div class="row"><div class="label"><b>ESI Algiers</b><small>CS engineering &amp; MSc</small></div>
+              <div class="lane"><div class="bar" style="--s:2015.67;--e:2020.67;--c:var(--research);--i:0" title="Sep 2015 to Sep 2020"></div></div></div>
+          </div>
+          <div class="today" aria-hidden="true"></div>
+        </div>
+        <div class="axis" aria-hidden="true"><span></span>
+          <div class="ticks"><span>2015</span><span>2016</span><span>2017</span><span>2018</span><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span><span></span></div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="block" id="work">
+      <h2>Selected work</h2>
+      <p class="intro">Each project shows how far it went: problem framing, mathematical model, implementation, production.</p>
+
+      <article class="case">
+        <div>
+          <h3>Real-time replanning for hospital rosters</h3>
+          <p class="who">Optacare, 2026</p>
+          <ol class="track" style="--c:var(--consult)" aria-label="Delivery stage: production">
+            <li class="done">Problem</li><li class="done">Model</li><li class="done">Build</li><li class="done">Production</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>When a nurse calls in sick, the roster has to be repaired fast without reshuffling everyone else.
+            I designed and shipped the replanning engine of a hospital workforce-planning platform, built on a large-scale MILP.</p>
+          <ul class="facts">
+            <li><b>~40%</b>fewer roster changes</li>
+            <li><b>Seconds</b>to replan</li>
+            <li><b>Millions</b>of constraints</li>
+          </ul>
+          <p class="stack"><b>Stack:</b> Python, IBM CPLEX, watsonx.ai, FastAPI, Docker</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>Air-traffic controller rostering</h3>
+          <p class="who">Avinor via Dots &amp; Lines, 2024&ndash;2026</p>
+          <ol class="track" style="--c:var(--consult)" aria-label="Delivery stage: production">
+            <li class="done">Problem</li><li class="done">Model</li><li class="done">Build</li><li class="done">Production</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>Lead solver engineer on the production optimization service behind Avinor's workforce planning:
+            shift design, rostering and sector assignment for Norwegian air-traffic controllers.</p>
+          <ul class="facts">
+            <li><b>100+</b>controllers per roster</li>
+            <li><b>3</b>planning problems in one service</li>
+          </ul>
+          <p class="stack"><b>Stack:</b> Java, Timefold, MIP, Kubernetes, Azure</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>Crude-oil supply chain</h3>
+          <p class="who">Logistics client via Dots &amp; Lines, 2026</p>
+          <ol class="track" style="--c:var(--consult)" aria-label="Delivery stage: model">
+            <li class="done">Problem</li><li class="done">Model</li><li>Build</li><li>Production</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>Buying, blending, trucking and selling crude oil in one plan. I designed a blending MILP coupled with a
+            pickup-and-delivery vehicle routing model, linked by decomposition and re-optimized daily on a rolling horizon.</p>
+          <p class="stack"><b>Methods:</b> MILP, VRP, decomposition, rolling horizon</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>VibeSolve: solvers from plain English</h3>
+          <p class="who">Open source, project lead, 2026</p>
+          <ol class="track" style="--c:var(--consult)" aria-label="Delivery stage: released">
+            <li class="done">Problem</li><li class="done">Model</li><li class="done">Build</li><li class="done">Released</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>Describe a planning problem in a paragraph; get back a tested, ready-to-run solver project.
+            A multi-agent LLM pipeline writes the model and constraints, then checks and repairs the code until it solves.</p>
+          <p class="stack"><b>Stack:</b> Python, LLM agents, Java, Docker.
+            <a href="https://github.com/vibesolve/vibesolve" rel="noopener">See it on GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>Interview scheduling optimizer</h3>
+          <p class="who">Recruitment client via Dots &amp; Lines, project lead</p>
+          <ol class="track" style="--c:var(--consult)" aria-label="Delivery stage: build">
+            <li class="done">Problem</li><li class="done">Model</li><li class="done">Build</li><li>Production</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>Hiring panels need the right interviewers, a room and a slot that suits everyone. I led an application that builds
+            interview schedules automatically, handles substitutes, and syncs with interviewers' calendars.</p>
+          <p class="stack"><b>Stack:</b> Java, Quarkus, Timefold, Google Calendar and Cal.com integrations</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <h3>University timetabling engine</h3>
+          <p class="who">Adesoft, industrial PhD, 2020&ndash;2023</p>
+          <ol class="track" style="--c:var(--industry)" aria-label="Delivery stage: delivered">
+            <li class="done">Problem</li><li class="done">Model</li><li class="done">Build</li><li class="done">Delivered</li>
+          </ol>
+        </div>
+        <div class="body">
+          <p>Automatic scheduling of courses and training sessions with rooms, teachers and equipment for universities and
+            large companies. I built constraint programming and MILP models, then shipped a decomposition-based solver
+            validated on real university data.</p>
+          <p class="stack"><b>Stack:</b> Python, IBM CP Optimizer, Gurobi, OR-Tools</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="toolbox">
+      <h2>Toolbox</h2>
+      <p class="intro">What I reach for, and when.</p>
+      <div class="tools">
+        <div><h3>Exact methods</h3><p>MILP/MIP with CPLEX, Gurobi, HiGHS, CBC; constraint programming with CP Optimizer and OR-Tools CP-SAT; decomposition, warm starts, goal programming.</p></div>
+        <div><h3>Heuristics at scale</h3><p>Timefold, Hexaly, local search, simulated annealing, genetic algorithms, LAHC, GRASP, ACO for problems too large to prove optimal.</p></div>
+        <div><h3>Problem families</h3><p>Rostering and shift design, machine and job-shop scheduling, timetabling, vehicle routing with time windows, blending and network flows.</p></div>
+        <div><h3>Data &amp; ML</h3><p>Python, SQL, pandas, scikit-learn, XGBoost, PyTorch; ML for algorithm selection and tuning; KPI design and benchmarking.</p></div>
+        <div><h3>Production</h3><p>FastAPI services, Docker, Kubernetes and Helm, Azure, IBM watsonx.ai, AWS, CI/CD with tests on every solver change.</p></div>
+        <div><h3>Leading</h3><p>Client workshops and spec interviews, proposals and presales, solver teams, training engineers on MIP, CP and metaheuristics.</p></div>
+      </div>
+    </section>
+
+    <section class="block" id="research">
+      <h2>Research &amp; open source</h2>
+      <p class="intro">PhD at Universit&eacute; de Technologie de Troyes on learning-based methods for parallel machine
+        scheduling, the core of production planning in manufacturing supply chains. Full list on
+        <a href="https://scholar.google.com/citations?user=mZMSkxUAAAAJ" rel="noopener">Google Scholar</a>.</p>
+      <ul class="pubs">
+        <li><span class="venue">PhD 2023</span><span><em>Learning-based approaches for parallel machines scheduling problems</em><small>Constraint programming, metaheuristics and machine learning for production scheduling</small></span></li>
+        <li><span class="venue">GECCO 2023</span><span><em>PyScheduling: an extensible and user-friendly Python framework for scheduling problems</em><small>ACM, companion proceedings</small></span></li>
+        <li><span class="venue">OLA 2023</span><span><em>Learning instance tunability for parallel machine scheduling problems with release dates and setup times</em><small>Machine learning predicts when tuning a metaheuristic is worth the effort</small></span></li>
+        <li><span class="venue">GECCO 2022</span><span><em>Efficient heuristics and metaheuristics for the unrelated parallel machine scheduling problem with release dates and setup times</em><small>ACM, <a href="https://doi.org/10.1145/3512290.3528857" rel="noopener">read the paper</a></small></span></li>
+        <li><span class="venue">CPAIOR 2022</span><span><em>A constraint programming approach for solving the unrelated parallel machine scheduling problem with release dates and setup times</em><small>Presented at the conference</small></span></li>
+        <li><span class="venue">META 2021</span><span><em>ClusterTune: tuning metaheuristics using clustering for scheduling problems</em><small>An order of magnitude less tuning effort than exhaustive methods</small></span></li>
+      </ul>
+
+      <h3 class="sub">Open source</h3>
+      <ul class="pubs">
+        <li><span class="venue">PyScheduling</span><span><em>Python package for scheduling problems</em><small>Single machine, parallel machines, flow shop and job shop, with exact, constraint programming and metaheuristic solvers.
+          <a href="https://scheduling.cc/project/pyscheduling/" rel="noopener">Project page</a>, <a href="https://github.com/scheduling-cc/pyscheduling" rel="noopener">GitHub</a></small></span></li>
+        <li><span class="venue">VibeSolve</span><span><em>Optimization solvers from plain English</em><small>LLM agents that turn a problem description into a tested solver project.
+          <a href="https://github.com/vibesolve/vibesolve" rel="noopener">GitHub</a></small></span></li>
+      </ul>
+    </section>
+
+    <section class="block" id="talks">
+      <h2>Talks, teaching &amp; awards</h2>
+      <p class="intro">Explaining when to reach for which method is half the job.</p>
+      <article class="case">
+        <div>
+          <h3>Optimising Schedules: A Hands-On Guide to Modern Algorithms</h3>
+          <p class="who">Optimization4All workshop, 2026</p>
+        </div>
+        <div class="body">
+          <p>A live, hands-on workshop on one scheduling problem solved two ways: an exact MIP model in Pyomo with HiGHS,
+            then a metaheuristic in Timefold. It covers adding real-world rules, keeping scoring fast at scale,
+            and what it takes to ship an optimizer to production. Colab notebooks let attendees follow along.</p>
+          <p class="stack"><a href="https://o4a-amine-workshop.netlify.app/" rel="noopener">View the slides</a>,
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450893479569690625/" rel="noopener">read the LinkedIn post</a></p>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <h3>Teaching and community</h3>
+          <p class="who">UTT, GDG Algiers, hackathons</p>
+        </div>
+        <div class="body">
+          <p>Lecturer at Universit&eacute; de Technologie de Troyes (2020&ndash;2023) in C, Python and algorithms.
+            Lead organizer of Google Developer Group Algiers for five years, with 200+ volunteers and 20+ talks of my own,
+            and an organizer of the Hajj Hackathon, the Guinness World Record largest hackathon.</p>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <h3>Competitions</h3>
+          <p class="who">Optimization and AI challenges</p>
+        </div>
+        <div class="body">
+          <p>Award winner at the Optimization Grand Challenge 2026. Third place at AI Hack Tunisia 2019.
+            Competitor in the International Timetabling Competition 2021.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Have a planning problem that won't solve itself?</h2>
+      <p>Open to lead optimization and data science roles in supply chain, logistics and workforce planning, remote or on contract.
+        Based in Strasbourg, France. English, French and Arabic.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:amineathmani@gmail.com">amineathmani@gmail.com</a>
+        <a class="btn" href="Amine_Athmani_Resume.pdf" download>Download resume (PDF)</a>
+        <a class="btn" href="https://github.com/amine-athmani" rel="noopener">GitHub</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=mZMSkxUAAAAJ" rel="noopener">Google Scholar</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Amine Athmani</span>
+    <button class="theme-toggle" type="button" id="theme">Switch theme</button>
+  </footer>
+</div>
+
+<script>
+  // Place the Gantt bars one by one once the chart is on screen
+  (function () {
+    var rows = document.getElementById('rows');
+    if (!('IntersectionObserver' in window)) { rows.classList.add('placed'); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { rows.classList.add('placed'); io.disconnect(); } });
+    }, { threshold: 0.1 });
+    io.observe(rows);
+  })();
+
+  // Light / dark toggle, remembered per visitor
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    try { var saved = localStorage.getItem('theme'); if (saved) root.dataset.theme = saved; } catch (e) {}
+    btn.addEventListener('click', function () {
+      var dark = root.dataset.theme ? root.dataset.theme === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+%-------------------------------------------------------------------------------
+% Amine Athmani - Resume (ATS-friendly)
+% Single column, no tables or icons, standard section names, real text layer
+% (glyphtounicode) so parsers extract clean text. The photo is a plain image
+% beside the header text; delete the \includegraphics block for photo-free markets (US/UK/CA).
+% Compile: pdflatex Amine_Athmani_Resume.tex   (or latexmk -pdf)
+%-------------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[letterpaper,margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% Make the PDF text machine-readable for ATS (ligatures, accents -> unicode)
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\hypersetup{
+  pdftitle={Amine Athmani - Resume - Lead Optimization Scientist},
+  pdfauthor={Amine Athmani},
+  pdfsubject={Operations Research, Optimization, Data Science},
+  pdfkeywords={Operations Research, MILP, MIP, CPLEX, Gurobi, OR-Tools, CP Optimizer,
+    Hexaly, Timefold, Vehicle Routing, VRP, Scheduling, Rostering, Supply Chain,
+    Logistics, Python, SQL, Machine Learning}
+}
+
+\definecolor{accent}{HTML}{1F3A5F}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+
+%------------------------------ Helpers ----------------------------------------
+% Section heading with a rule (base LaTeX, no titlesec needed)
+\newcommand{\cvsection}[1]{%
+  \vspace{7pt}%
+  {\color{accent}\large\bfseries\MakeUppercase{#1}}\par
+  \vspace{-4pt}{\color{accent}\rule{\linewidth}{0.6pt}}\par
+  \vspace{2pt}}
+
+% Role: {Title}{Dates}{Company -- context}{Location}
+\newcommand{\cvrole}[4]{%
+  \vspace{4pt}%
+  {\bfseries #1}\hfill #2\par
+  {\itshape #3}\hfill {\itshape #4}\par
+  \vspace{1pt}}
+
+% Compact bullet list (no enumitem needed)
+\newenvironment{cvitems}{%
+  \begin{list}{\textbullet}{%
+    \setlength{\leftmargin}{1.2em}\setlength{\labelwidth}{0.8em}%
+    \setlength{\labelsep}{0.4em}\setlength{\itemsep}{1pt}%
+    \setlength{\parsep}{0pt}\setlength{\topsep}{1pt}\setlength{\partopsep}{0pt}}%
+  \small}{\end{list}}
+
+\newcommand{\skillline}[2]{{\bfseries #1:} #2\par\vspace{1pt}}
+
+%===============================================================================
+\begin{document}
+
+%------------------------------ Header -----------------------------------------
+\begin{minipage}[c]{0.86\linewidth}
+  {\LARGE\bfseries Amine Athmani, PhD}\par
+  \vspace{3pt}
+  {\large Lead Optimization Scientist $|$ Operations Research \& Data Science}\par
+  \vspace{4pt}
+  \small
+  Strasbourg, France (open to remote) \;$|$\; +33 7 61 60 13 75 \;$|$\;
+  \href{mailto:amineathmani@gmail.com}{amineathmani@gmail.com}\par
+  \href{https://amine-athmani.github.io}{amine-athmani.github.io} \;$|$\;
+  \href{https://www.linkedin.com/in/amine-athmani/}{linkedin.com/in/amine-athmani} \;$|$\;
+  \href{https://github.com/amine-athmani}{github.com/amine-athmani} \;$|$\;
+  \href{https://scholar.google.com/citations?user=mZMSkxUAAAAJ}{Google Scholar}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.12\linewidth}
+  \raggedleft\includegraphics[width=\linewidth]{photo.jpg}
+\end{minipage}\par
+
+%------------------------------ Summary ----------------------------------------
+\cvsection{Summary}
+{\small
+Operations Research scientist and technical lead with 6+ years taking optimization products from
+\textbf{problem framing} to \textbf{modeling}, \textbf{implementation} and \textbf{production}.
+PhD in AI \& Operations Research (UTT) on production scheduling and Computer Science Engineer (ESI
+Algiers). Builds workforce scheduling, rostering, routing and supply chain solutions with
+\textbf{MILP/MIP (CPLEX, Gurobi)}, \textbf{constraint programming (CP Optimizer, OR-Tools)},
+\textbf{metaheuristics (Timefold, Hexaly)} and \textbf{machine learning} in \textbf{Python},
+shipped as containerized APIs on cloud platforms. Leads solver teams, client workshops and presales.\par}
+
+%------------------------------ Skills -----------------------------------------
+\cvsection{Core Skills}
+{\small
+\skillline{Operations Research}{MILP/MIP, Constraint Programming, Vehicle Routing (VRP, pickup \&
+  delivery, time windows), Production \& Machine Scheduling, Rostering, Timetabling, Supply Chain
+  \& Logistics, Resource \& Network Optimization, Decomposition, Replanning, Metaheuristics}
+\skillline{Solvers}{IBM CPLEX, IBM CP Optimizer, Gurobi, Google OR-Tools (CP-SAT), Hexaly,
+  Timefold / OptaPlanner, Pyomo, HiGHS, CBC}
+\skillline{Data Science \& ML}{Python, SQL, pandas, NumPy, scikit-learn, XGBoost, PyTorch, algorithm
+  selection \& tuning, KPI design, benchmarking, LLM agents}
+\skillline{Engineering}{Java, C/C++, Rust, TypeScript, FastAPI, REST APIs, Docker, Kubernetes,
+  Azure, IBM watsonx.ai, AWS, CI/CD, Git, Linux}
+\skillline{Leadership}{Technical team leadership, client workshops, presales \& proposals, solution
+  architecture, training \& public speaking}
+}
+
+%------------------------------ Experience -------------------------------------
+\cvsection{Professional Experience}
+
+\cvrole{Senior Optimization Consultant}{Aug 2026 -- Present}
+       {Optacare -- Healthcare workforce planning software for hospitals}{France (Remote)}
+\begin{cvitems}
+  \item Designed and shipped the \textbf{real-time replanning engine} of a nurse-rostering platform,
+    repairing hospital rosters after absences with minimal disruption.
+  \item Modeled it as a large-scale \textbf{MILP in IBM CPLEX} (millions of constraints, solved in
+    seconds) and \textbf{cut roster changes by \textasciitilde40\%}.
+  \item Delivered as a \textbf{FastAPI} microservice on \textbf{IBM watsonx.ai} with Docker and CI;
+    defined features and requirements with the product team.
+\end{cvitems}
+
+\cvrole{Senior Optimization Consultant -- Technical Lead}{Mar 2024 -- Present}
+       {Dots \& Lines -- Optimization \& AI consultancy}{Strasbourg, France}
+\begin{cvitems}
+  \item \textbf{Avinor} (Norwegian airport \& air navigation operator): lead solver engineer on the production
+    rostering service for 100+ air-traffic controllers, using \textbf{Timefold} and \textbf{MIP} on \textbf{Kubernetes/Azure}.
+  \item \textbf{Supply chain:} designed a crude-oil logistics optimizer coupling a \textbf{blending MILP}
+    with a \textbf{pickup-and-delivery VRP} through decomposition and rolling-horizon replanning.
+  \item Led \textbf{VibeSolve}, an open-source \textbf{LLM agent} pipeline generating solvers from plain English,
+    and an \textbf{interview-scheduling optimizer} (Timefold, calendar integrations).
+\end{cvitems}
+
+\cvrole{R\&D Engineer, Optimization (Industrial PhD)}{Nov 2020 -- Dec 2023}
+       {Adesoft -- Scheduling \& timetabling software for universities and companies}{Paris, France}
+\begin{cvitems}
+  \item Built an engine that automatically schedules courses and training with rooms, teachers and
+    equipment for universities and large companies.
+  \item Developed \textbf{CP Optimizer}, \textbf{Gurobi MILP} and \textbf{OR-Tools} models and a
+    decomposition-based solver validated on real university data.
+  \item Researched \textbf{ML-guided production scheduling}, published at GECCO and META and
+    open-sourced in \textbf{pyscheduling}.
+\end{cvitems}
+
+\cvrole{Research Intern, Machine Learning for Optimization}{Sep 2019 -- Sep 2020}
+       {LIST3N Lab -- Universit\'e de Technologie de Troyes}{Troyes, France}
+\begin{cvitems}
+  \item Developed \textbf{ClusterTune}, an ML-based metaheuristic tuner needing an order of magnitude
+    less tuning effort than exhaustive methods.
+\end{cvitems}
+
+%------------------------------ Education --------------------------------------
+\cvsection{Education}
+{\small
+{\bfseries PhD in Computer Science -- AI \& Operations Research}\hfill Nov 2020 -- Dec 2023\par
+{\itshape Universit\'e de Technologie de Troyes (UTT), industrial thesis with Adesoft}\hfill{\itshape Troyes, France}\par
+\vspace{1pt}
+Thesis: \textit{Learning-based Approaches for Parallel Machines Scheduling Problems}. Production
+scheduling with CP Optimizer, metaheuristics, and ML for tuning and algorithm selection.\par
+\vspace{4pt}
+{\bfseries Engineering Degree \& MSc in Computer Science (Computer Systems)}\hfill 2015 -- 2020\par
+{\itshape \'Ecole nationale Sup\'erieure d'Informatique (ESI ex-INI), top 10\% of class}\hfill{\itshape Algiers, Algeria}\par
+\vspace{4pt}
+{\bfseries SUSI Fellow -- Entrepreneurship and Economic Development}\hfill 2019\par
+{\itshape University of Massachusetts Amherst (U.S. Department of State program)}\hfill{\itshape Amherst, MA, USA}\par
+}
+
+%------------------------------ Publications -----------------------------------
+\cvsection{Publications \& Open Source}
+\begin{cvitems}
+  \item Athmani, Arbaoui, Mimene, Yalaoui. \textit{Efficient heuristics and metaheuristics for the unrelated
+    parallel machine scheduling problem with release dates and setup times.} GECCO 2022, ACM.
+  \item Arbaoui, Athmani, Henni, Laissaoui, Terzi. \textit{PyScheduling: an extensible and user-friendly
+    Python framework for scheduling problems.} GECCO 2023 Companion, ACM.
+  \item Athmani, Arbaoui, Yalaoui. \textit{Learning instance tunability for parallel machine scheduling
+    problems with release dates and setup times.} OLA 2023.
+  \item Athmani, Arbaoui, Yalaoui. \textit{ClusterTune: tuning metaheuristics using clustering for
+    scheduling problems.} META 2021.
+  \item Athmani et al. \textit{A constraint programming approach for solving the unrelated parallel machine
+    scheduling problem with release dates and setup times.} Presented at CPAIOR 2022.
+  \item Open source: \textbf{pyscheduling} (github.com/scheduling-cc/pyscheduling) and \textbf{VibeSolve}
+    (github.com/vibesolve/vibesolve).
+\end{cvitems}
+
+%------------------------------ Other ------------------------------------------
+\cvsection{Teaching, Leadership \& Awards}
+\begin{cvitems}
+  \item \textbf{Award winner, Optimization Grand Challenge 2026}; 3rd place, AI Hack Tunisia (2019); competitor,
+    International Timetabling Competition 2021.
+  \item Workshop speaker, \textbf{Optimization4All} (2026): \textit{Optimising Schedules: A Hands-On Guide to Modern
+    Algorithms}, MIP (Pyomo, HiGHS) vs. metaheuristics (Timefold) with live demos.
+  \item Lecturer at UTT (2020--2023): C and Python programming, algorithms.
+  \item Lead organizer, Google Developer Group Algiers (2015--2020): led 200+ volunteers, gave 20+ talks;
+    organizer, Hajj Hackathon (2018, Guinness World Record largest hackathon).
+\end{cvitems}
+
+\cvsection{Languages}
+{\small English (full professional) \;$|$\; French (bilingual, DALF) \;$|$\; Arabic (native)\par}
+
+\end{document}
